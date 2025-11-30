@@ -1,123 +1,631 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YINAN | Data Scientist & AI Engineer</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YINAN | Weapons-Grade Data Science & AI Engineering</title>
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: "Inter", sans-serif;
-            background: #0d0d0d;
-            color: white;
-            overflow-x: hidden;
-        }
+  <!-- 🔍 GA4 TRACKING (replace G-XXXXXXX with your real Measurement ID) -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXX');
+  </script>
+  -->
 
-        header {
-            padded: 80px 40px;
-            text-align: center;
-        }
+  <style>
+    :root {
+      --bg: #050608;
+      --bg-card: #0c0f14;
+      --border-subtle: #171b23;
+      --accent: #00bfff;
+      --accent-soft: rgba(0, 191, 255, 0.28);
+      --text-main: #f8fafc;
+      --text-sub: #a5b4c3;
+      --danger: #ff4b81;
+    }
 
-        h1 {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
+    * {
+      box-sizing: border-box;
+    }
 
-        h2 {
-            font-size: 20px;
-            opacity: 0.8;
-            font-weight: 400;
-        }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro",
+        "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      overflow-x: hidden;
+    }
 
-        .section {
-            max-width: 900px;
-            margin: 60px auto;
-            padding: 0 20px;
-        }
+    /* Sacred geometry grid background */
+    .geometry-grid {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(0, 191, 255, 0.08) 0, transparent 55%),
+        radial-gradient(circle at 90% 80%, rgba(180, 83, 255, 0.12) 0, transparent 60%),
+        linear-gradient(
+          rgba(255, 255, 255, 0.02) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.02) 1px,
+          transparent 1px
+        );
+      background-size:
+        cover,
+        cover,
+        80px 80px,
+        80px 80px;
+      opacity: 0.9;
+      z-index: -2;
+    }
 
-        .card {
-            background: #111;
-            border: 1px solid #222;
-            padding: 25px;
-            border-radius: 12px;
-            margin-bottom: 25px;
-            transition: 0.25s ease;
-        }
+    /* Matrix-style subtle particles */
+    .particles {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
 
-        .card:hover {
-            border-color: #00bfff;
-            box-shadow: 0 0 18px rgba(0,191,255,0.25);
-            transform: translateY(-4px);
-        }
+    .particle {
+      position: absolute;
+      width: 2px;
+      height: 18px;
+      background: linear-gradient(to bottom, rgba(0, 191, 255, 0.0), rgba(0, 191, 255, 0.7));
+      opacity: 0.5;
+      animation: fall linear infinite;
+    }
 
-        .card-title {
-            font-size: 22px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
+    @keyframes fall {
+      0% { transform: translateY(-40px); opacity: 0; }
+      10% { opacity: 0.7; }
+      100% { transform: translateY(120vh); opacity: 0; }
+    }
 
-        .card-desc {
-            opacity: 0.85;
-            line-height: 1.6;
-        }
+    .page {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 32px 20px 72px;
+    }
 
-        .footer {
-            text-align: center;
-            padding: 50px;
-            opacity: 0.6;
-            font-size: 14px;
-        }
+    /* Hero / motion blur section */
+    .hero {
+      position: relative;
+      margin-top: 32px;
+      margin-bottom: 40px;
+      padding: 36px 24px 40px;
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 10% 0, rgba(0, 191, 255, 0.3), transparent 55%),
+        radial-gradient(circle at 90% 100%, rgba(88, 28, 135, 0.45), transparent 60%),
+        linear-gradient(135deg, #05060a, #050308);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      box-shadow:
+        0 0 0 1px rgba(15, 23, 42, 0.6),
+        0 32px 80px rgba(15, 23, 42, 0.9),
+        0 0 120px rgba(0, 191, 255, 0.3);
+      overflow: hidden;
+    }
 
-        a { color: #00bfff; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-    </style>
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -60px;
+      background: radial-gradient(circle at 20% 0%, rgba(255, 255, 255, 0.05), transparent 60%);
+      filter: blur(20px);
+      opacity: 0.6;
+      mix-blend-mode: screen;
+    }
+
+    .hero-top-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 999px;
+      border: 2px solid rgba(148, 163, 184, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 24px;
+      letter-spacing: 0.08em;
+      color: var(--text-main);
+      background:
+        radial-gradient(circle at 30% 0%, #22d3ee, #0ea5e9, #0f172a);
+      box-shadow:
+        0 0 0 2px rgba(15, 23, 42, 0.9),
+        0 0 40px rgba(56, 189, 248, 0.7);
+    }
+
+    .hero-text h1 {
+      margin: 0 0 4px;
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-subtitle {
+      margin: 0;
+      font-size: 15px;
+      color: var(--text-sub);
+    }
+
+    .hero-subtitle span {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn {
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 14px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(15, 23, 42, 0.8);
+      color: var(--text-main);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      transition: all 0.18s ease-out;
+    }
+
+    .btn-primary {
+      background: radial-gradient(circle at 10% 0, #38bdf8, #0ea5e9, #0369a1);
+      border-color: rgba(56, 189, 248, 0.7);
+      box-shadow:
+        0 0 24px rgba(56, 189, 248, 0.7),
+        0 0 0 1px rgba(15, 23, 42, 0.9);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow:
+        0 0 36px rgba(56, 189, 248, 0.9),
+        0 0 0 1px rgba(15, 23, 42, 1);
+    }
+
+    .btn-outline {
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 18px var(--accent-soft);
+      transform: translateY(-1px);
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      margin-bottom: 14px;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title span {
+      font-size: 18px;
+    }
+
+    .section-subtitle {
+      margin: 0 0 16px;
+      font-size: 13px;
+      color: var(--text-sub);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+    }
+
+    .skill-card {
+      background: var(--bg-card);
+      border-radius: 12px;
+      padding: 14px;
+      border: 1px solid var(--border-subtle);
+      font-size: 13px;
+      color: var(--text-sub);
+    }
+
+    .skill-card strong {
+      display: block;
+      font-size: 13px;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    .logos-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .logo-pill {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(148, 163, 184, 0.85);
+      background: rgba(15, 23, 42, 0.85);
+      transition: all 0.18s ease-out;
+    }
+
+    .logo-pill:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      box-shadow: 0 0 16px var(--accent-soft);
+      transform: translateY(-1px);
+    }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: 18px;
+      padding: 18px 18px 16px;
+      border: 1px solid var(--border-subtle);
+      margin-bottom: 16px;
+      transition: all 0.18s ease-out;
+    }
+
+    .card.project-card {
+      cursor: pointer;
+    }
+
+    .card.project-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 22px var(--accent-soft);
+      transform: translateY(-2px);
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .card-tagline {
+      font-size: 12px;
+      color: var(--text-sub);
+      margin-bottom: 8px;
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: var(--text-sub);
+      line-height: 1.6;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 8px;
+      font-size: 13px;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .card-link span {
+      margin-left: 4px;
+    }
+
+    .card-link:hover {
+      text-decoration: underline;
+    }
+
+    .roles-list {
+      font-size: 13px;
+      color: var(--text-sub);
+      line-height: 1.7;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-sub);
+      margin-top: 40px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(15, 23, 42, 0.9);
+    }
+
+    @media (max-width: 640px) {
+      .hero-top-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hero {
+        padding: 24px 18px 26px;
+      }
+      .hero-text h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <div class="geometry-grid"></div>
+  <div class="particles" id="particles"></div>
 
-<header>
-    <h1>YINAN YANG</h1>
-    <h2>Weapons-Grade Data Science & Applied AI Engineering</h2>
-</header>
+  <div class="page">
 
-<div class="section">
+    <!-- HERO / IDENTITY -->
+    <section class="hero">
+      <div class="hero-top-row">
+        <div class="avatar">YY</div>
+        <div class="hero-text">
+          <h1>YINAN YANG</h1>
+          <p class="hero-subtitle">
+            <span>Creator</span> · Weapons-Grade Data Science · Applied AI & Intelligence Systems
+          </p>
+          <p class="hero-subtitle">
+            I architect systems that expose truth, move capital intelligently, and protect what’s
+            vulnerable.
+          </p>
+        </div>
+      </div>
 
-    <h2 style="margin-bottom:20px;">🚀 Featured Projects</h2>
+      <div class="hero-actions">
+        <a class="btn btn-primary"
+           href="assets/Yinan_Yang_Resume.pdf"
+           target="_blank"
+           id="resume-download">
+          ⬇︎ Download Résumé (PDF)
+        </a>
+        <a class="btn btn-outline"
+           href="https://github.com/natheryinan"
+           target="_blank">
+          GitHub Profile →
+        </a>
+        <a class="btn btn-outline"
+           href="mailto:yangyinanapp@gmail.com">
+          Email Me →
+        </a>
+      </div>
+    </section>
 
-    <div class="card">
+    <!-- SKILLS MATRIX -->
+    <section class="section" id="skills">
+      <h2 class="section-title">🧠 Skills Matrix</h2>
+      <p class="section-subtitle">
+        Full-stack intelligence: from raw data and infrastructure to deployed AI systems
+        touching revenue, risk, and safety.
+      </p>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <strong>Languages & Core</strong>
+          Python · SQL · Bash · JavaScript · REST APIs
+        </div>
+        <div class="skill-card">
+          <strong>Machine Learning & AI</strong>
+          LLMs · RAG · Embeddings · Transformers · XGBoost · Time-series · NLP ·
+          Generative Models
+        </div>
+        <div class="skill-card">
+          <strong>Reinforcement & Decision Systems</strong>
+          PPO · Bandits · Policy evaluation · Simulation engines · Behavioral modeling
+        </div>
+        <div class="skill-card">
+          <strong>Data & Infra</strong>
+          AWS · Docker · GitHub Actions · Postgres · S3 · Analytics pipelines
+        </div>
+        <div class="skill-card">
+          <strong>Domains</strong>
+          Security & anomaly detection · Finance & pricing · Customer behavior · Real estate & geo
+        </div>
+        <div class="skill-card">
+          <strong>Communication</strong>
+          Executive storytelling · research-grade analysis · cross-functional leadership
+        </div>
+      </div>
+    </section>
+
+    <!-- TARGET ROLES -->
+    <section class="section" id="roles">
+      <h2 class="section-title">🎯 Roles & Impact</h2>
+      <p class="section-subtitle">
+        I’m not a “job seeker.” I’m a creator looking for places where advanced AI and data
+        systems can actually move the needle.
+      </p>
+
+      <div class="card">
+        <div class="card-title">Target Roles</div>
+        <div class="roles-list">
+          • Senior / Staff / Principal Data Scientist<br />
+          • Applied AI / ML Engineer · LLM & RAG Engineer<br />
+          • Pricing / Risk / Intelligence Systems Architect<br />
+          • Head / VP of Data Science in high-leverage environments
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Industries I Transform</div>
+        <div class="roles-list">
+          • High-stakes products: security, risk, anomaly detection<br />
+          • Finance & pricing: revenue, capital allocation, incentives<br />
+          • Marketplaces & real estate intelligence<br />
+          • Any system where human behavior, incentives, and data collide
+        </div>
+      </div>
+    </section>
+
+    <!-- LOGOS / ECOSYSTEM -->
+    <section class="section" id="ecosystem">
+      <h2 class="section-title">🌐 Ecosystem & Tools</h2>
+      <p class="section-subtitle">
+        I build on top of modern data & AI stacks and plug into whatever moves fastest.
+      </p>
+
+      <div class="logos-row">
+        <div class="logo-pill">OpenAI</div>
+        <div class="logo-pill">Anthropic</div>
+        <div class="logo-pill">AWS</div>
+        <div class="logo-pill">GCP</div>
+        <div class="logo-pill">Snowflake</div>
+        <div class="logo-pill">Databricks</div>
+        <div class="logo-pill">Postgres</div>
+        <div class="logo-pill">GitHub Actions</div>
+        <div class="logo-pill">Docker</div>
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS -->
+    <section class="section" id="projects">
+      <h2 class="section-title">🚀 Featured Projects</h2>
+      <p class="section-subtitle">
+        Each project is a live system or end-to-end pipeline. Click through for code and details.
+      </p>
+
+      <!-- You can edit / add more project cards below. Make sure to keep data-project
+           attribute so tracking works. -->
+
+      <div class="card project-card" data-project="RAG Intelligence Pipeline">
         <div class="card-title">RAG Intelligence Pipeline (LLM + Vector Search)</div>
+        <div class="card-tagline">End-to-end retrieval & reasoning</div>
         <div class="card-desc">
-            End-to-end retrieval pipeline with OpenAI embeddings, multi-hop reasoning,
-            and hybrid search. Includes prompt-routing, ranking, and eval metrics.
-            <br><br>
-            <a href="https://github.com/natheryinan" target="_blank">View on GitHub →</a>
+          Retrieval-augmented pipeline with OpenAI embeddings, hybrid search, prompt-routing,
+          ranking, and evaluation harness. Designed for real-world noisy knowledge bases.
         </div>
-    </div>
+        <a class="card-link"
+           href="https://github.com/natheryinan"
+           target="_blank">
+          View on GitHub <span>→</span>
+        </a>
+      </div>
 
-    <div class="card">
+      <div class="card project-card" data-project="RL Pricing Engine">
         <div class="card-title">Reinforcement Learning Pricing Engine (PPO)</div>
+        <div class="card-tagline">Behavior-driven revenue optimization</div>
         <div class="card-desc">
-            RL agent using PPO to simulate market reactions, optimize revenue,
-            and learn behavioral patterns under noise. Offline + online training logs included.
+          PPO-based agent that learns pricing strategy from simulated and offline logs,
+          modeling customer behavior under noise and constraints.
         </div>
-    </div>
+      </div>
 
-    <div class="card">
+      <div class="card project-card" data-project="Behavior Intelligence">
         <div class="card-title">Human-Behavior → Intelligence Modeling</div>
+        <div class="card-tagline">Weak signals, strong inference</div>
         <div class="card-desc">
-            Converts weak behavioral signals into predictive clusters.
-            Used for anomaly detection, pattern deviation, and security-level insights.
+          Converts messy behavioral traces into predictive clusters for anomaly detection,
+          pattern deviation, and adversarial behavior insights.
         </div>
-    </div>
+      </div>
 
-</div>
+      <div class="card project-card" data-project="Geospatial Intelligence">
+        <div class="card-title">Geospatial Intelligence & Risk Field Modeling</div>
+        <div class="card-tagline">Spatial patterns as fields</div>
+        <div class="card-desc">
+          Geospatial modeling of events, risk, and opportunity surfaces. Uses tiling, clustering,
+          and field interpolation to support decision-making over physical space.
+        </div>
+      </div>
 
-<div class="footer">
-    © 2025 YINAN YANG • AI Engineer & Data Scientist
-</div>
+      <div class="card project-card" data-project="FDE Pipeline">
+        <div class="card-title">FDE Intelligence Pipeline</div>
+        <div class="card-tagline">Full-stack data & execution</div>
+        <div class="card-desc">
+          Infrastructure and orchestration project tying ingestion, transformation, model
+          serving, and monitoring into one coherent system.
+        </div>
+      </div>
 
+      <div class="card project-card" data-project="Generative AI Systems">
+        <div class="card-title">Generative AI & Agent Systems</div>
+        <div class="card-tagline">LLM agents that actually ship</div>
+        <div class="card-desc">
+          Agentic workflows that coordinate LLMs, tools, and retrieval to do real work:
+          drafting, triage, and structured reasoning over complex inputs.
+        </div>
+      </div>
+
+    </section>
+
+    <footer>
+      © 2025 YINAN YANG · Creator · AI Engineer & Data Scientist
+    </footer>
+
+  </div>
+
+  <script>
+    // Simple particle generator for matrix-style subtle rain
+    (function createParticles() {
+      const container = document.getElementById('particles');
+      if (!container) return;
+
+      const count = 40; // subtle, not noisy
+      const vw = window.innerWidth;
+
+      for (let i = 0; i < count; i++) {
+        const el = document.createElement('div');
+        el.className = 'particle';
+        const left = Math.random() * vw;
+        const delay = Math.random() * 10;
+        const duration = 8 + Math.random() * 10;
+
+        el.style.left = left + 'px';
+        el.style.animationDuration = duration + 's';
+        el.style.animationDelay = delay + 's';
+
+        container.appendChild(el);
+      }
+    })();
+
+    // Click tracking for GA4 (projects + resume)
+    function safeTrack(eventName, params) {
+      if (typeof gtag === 'function') {
+        gtag('event', eventName, params || {});
+      }
+    }
+
+    // Project card clicks
+    document.querySelectorAll('.project-card').forEach(function(card) {
+      card.addEventListener('click', function () {
+        const name = card.getAttribute('data-project') || 'unknown_project';
+        safeTrack('project_click', { project_name: name });
+      });
+    });
+
+    // Resume download click
+    const resumeLink = document.getElementById('resume-download');
+    if (resumeLink) {
+      resumeLink.addEventListener('click', function () {
+        safeTrack('resume_download', { location: 'hero_button' });
+      });
+    }
+  </script>
 </body>
 </html>
