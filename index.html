@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>LORD YINAN | Weapons-Grade Intelligence</title>
+  <title>Test page – LORD YINAN</title>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-KLQMTJ8SC8"></script>
@@ -14,433 +14,43 @@
     gtag('config', 'G-KLQMTJ8SC8');
   </script>
 
-  <!-- Basic meta / SEO -->
-  <meta name="description" content="Yinan Yang — Data Scientist & Applied AI Engineer building weapons-grade intelligence systems: RAG, agents, RL pricing, safety analytics." />
-  <meta property="og:title" content="LORD YINAN | Weapons-Grade Intelligence" />
-  <meta property="og:description" content="Portfolio of Yinan Yang — Data Scientist & Applied AI Engineer." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://natheryinan.github.io/" />
-  <meta property="og:image" content="https://natheryinan.github.io/images/preview.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="LORD YINAN | Weapons-Grade Intelligence" />
-  <meta name="twitter:description" content="Weapons-grade AI systems, built to protect the vulnerable and expose truth." />
-
-  <!-- Simple embedded styles for now -->
   <style>
-    :root {
-      --bg: #020617;
-      --bg-soft: #020617;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56,189,248,0.12);
-      --text-main: #e5e7eb;
-      --text-soft: #9ca3af;
-      --border-subtle: rgba(148,163,184,0.35);
-      --card-bg: rgba(15,23,42,0.86);
-      --shadow-soft: 0 24px 60px rgba(15,23,42,0.9);
-      --radius-xl: 26px;
-    }
-
-    * { box-sizing: border-box; }
     html, body {
       margin: 0;
       padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-        "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
-      color: var(--text-main);
-      min-height: 100%;
+      height: 100%;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #020617;
+      color: #e5e7eb;
     }
-
-    body {
+    .center {
+      height: 100%;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 32px 16px;
+      text-align: center;
+      padding: 24px;
     }
-
-    .shell {
-      width: 100%;
-      max-width: 1120px;
-      background: linear-gradient(135deg, rgba(15,23,42,0.96), rgba(15,23,42,0.98));
-      border-radius: 32px;
-      border: 1px solid rgba(148,163,184,0.4);
-      box-shadow: var(--shadow-soft);
-      display: grid;
-      grid-template-columns: minmax(0, 2.2fr) minmax(0, 2.8fr);
-      gap: 1px;
-      overflow: hidden;
-      backdrop-filter: blur(18px);
-    }
-
-    @media (max-width: 900px) {
-      body { padding: 18px 10px; }
-      .shell { grid-template-columns: minmax(0,1fr); border-radius: 28px; }
-    }
-
-    .left, .right {
-      padding: 28px 28px 26px;
-      position: relative;
-    }
-
-    .left {
-      border-right: 1px solid rgba(31,41,55,0.95);
-      background:
-        radial-gradient(circle at top left, rgba(56,189,248,0.16) 0, transparent 55%),
-        radial-gradient(circle at bottom, rgba(100,116,139,0.14) 0, transparent 55%),
-        var(--bg-soft);
-    }
-
-    @media (max-width: 900px) {
-      .left { border-right: none; border-bottom: 1px solid rgba(31,41,55,0.95); }
-    }
-
-    .badge-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 18px;
-      font-size: 0.8rem;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--text-soft);
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      padding: 4px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.6);
-      gap: 6px;
-      background: radial-gradient(circle at top, rgba(15,23,42,0.8), rgba(15,23,42,0.95));
-    }
-
-    .pill-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 10px rgba(34,197,94,0.7);
-    }
-
     h1 {
-      font-size: clamp(2.1rem, 2.6vw + 1.4rem, 3rem);
-      margin: 0 0 10px;
-      letter-spacing: .06em;
-      text-transform: uppercase;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
     }
-
-    .subtitle {
-      font-size: 0.98rem;
-      color: var(--text-soft);
-      max-width: 460px;
+    p {
+      max-width: 520px;
       line-height: 1.5;
-    }
-
-    .role-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 18px 0 20px;
-    }
-
-    .role-chip {
-      padding: 6px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.7);
-      font-size: 0.82rem;
-      color: var(--text-soft);
-      background: rgba(15,23,42,0.9);
-    }
-
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 6px;
-    }
-
-    .btn {
-      border-radius: 999px;
-      padding: 9px 16px;
-      font-size: 0.9rem;
-      border: 1px solid var(--border-subtle);
-      background: rgba(15,23,42,0.9);
-      color: var(--text-main);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      cursor: pointer;
-      transition: all 0.18s ease-out;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #0ea5e9, #22d3ee);
-      border-color: transparent;
-      color: #0b1120;
-      font-weight: 600;
-      box-shadow: 0 18px 40px rgba(8,47,73,0.85);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 22px 55px rgba(8,47,73,0.95);
-    }
-
-    .btn-secondary:hover {
-      border-color: #38bdf8;
-      color: #e5e7eb;
-      background: radial-gradient(circle at top, rgba(56,189,248,0.18), rgba(15,23,42,0.96));
-    }
-
-    .metrics {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 18px;
-      font-size: 0.82rem;
-      color: var(--text-soft);
-    }
-
-    .metric-pill {
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(15,23,42,0.96);
-      border: 1px solid rgba(51,65,85,0.9);
-    }
-
-    .right {
-      background:
-        radial-gradient(circle at top, rgba(56,189,248,0.12) 0, transparent 55%),
-        radial-gradient(circle at bottom right, rgba(30,64,175,0.32) 0, transparent 60%),
-        var(--bg);
-    }
-
-    .sec-title {
-      font-size: 0.78rem;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--text-soft);
-      margin-bottom: 10px;
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: minmax(0,1.2fr) minmax(0,1.2fr);
-      gap: 14px;
-      margin-bottom: 18px;
-    }
-
-    @media (max-width: 900px) {
-      .project-grid { grid-template-columns: minmax(0,1fr); }
-    }
-
-    .card {
-      background: var(--card-bg);
-      border-radius: var(--radius-xl);
-      border: 1px solid rgba(148,163,184,0.45);
-      padding: 14px 14px 12px;
-      box-shadow: 0 14px 40px rgba(15,23,42,0.9);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: -40%;
-      background: radial-gradient(circle at top right, rgba(56,189,248,0.12), transparent 55%);
-      opacity: 0;
-      transition: opacity .2s ease-out;
-    }
-
-    .card:hover::before { opacity: 1; }
-
-    .card-kicker {
-      font-size: 0.72rem;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: var(--text-soft);
-      margin-bottom: 6px;
-    }
-
-    .card-title {
-      font-size: 0.98rem;
-      margin: 0 0 4px;
-    }
-
-    .card-body {
-      font-size: 0.82rem;
-      color: var(--text-soft);
-      line-height: 1.5;
-      margin-bottom: 8px;
-    }
-
-    .card-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.76rem;
-      color: var(--text-soft);
-      margin-top: 4px;
-    }
-
-    .badge {
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: rgba(8,47,73,0.9);
-      border: 1px solid rgba(56,189,248,0.7);
-      color: #e0f2fe;
-    }
-
-    .card-link {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-
-    .footnote {
-      font-size: 0.75rem;
-      color: var(--text-soft);
-      margin-top: 6px;
-      line-height: 1.4;
-    }
-
-    .small-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 10px;
-      font-size: 0.78rem;
-    }
-
-    .small-links a {
-      color: var(--text-soft);
-      text-decoration: none;
-    }
-    .small-links a:hover {
-      color: var(--accent);
+      color: #9ca3af;
     }
   </style>
 </head>
 <body>
-  <main class="shell">
-    <!-- LEFT: Identity & mission -->
-    <section class="left">
-      <div class="badge-row">
-        <div class="pill">
-          <span class="pill-dot"></span>
-          <span>Signal online</span>
-        </div>
-        <span>natheryinan.github.io</span>
-      </div>
-
-      <h1>LORD&nbsp;YINAN</h1>
-      <p class="subtitle">
-        Data Scientist &amp; Applied AI Engineer building weapons-grade intelligence —
-        RAG systems, agentic workflows, and safety analytics designed to expose
-        what’s hidden and protect the vulnerable.
-      </p>
-
-      <div class="role-row">
-        <span class="role-chip">RAG &amp; LLM Systems</span>
-        <span class="role-chip">Agentic Workflows</span>
-        <span class="role-chip">ML Product Strategy</span>
-        <span class="role-chip">Risk &amp; Safety Analytics</span>
-      </div>
-
-      <div class="cta-row">
-        <a class="btn btn-primary" href="https://github.com/natheryinan" target="_blank" rel="noreferrer">
-          View GitHub repos
-        </a>
-        <a class="btn btn-secondary" href="mailto:yangyinanapp@gmail.com">
-          Contact / licensing
-        </a>
-      </div>
-
-      <div class="metrics">
-        <span class="metric-pill">Tracking: portfolio traffic &amp; outbound repo visits</span>
-        <span class="metric-pill">Unauthorized commercial use strictly prohibited</span>
-      </div>
-    </section>
-
-    <!-- RIGHT: Projects & legal hint -->
-    <section class="right">
-      <div class="sec-title">Featured systems</div>
-
-      <div class="project-grid">
-        <a class="card-link" href="https://github.com/natheryinan/mental-health-sentiment-classifier" target="_blank" rel="noreferrer">
-          <article class="card">
-            <div class="card-kicker">Safety &amp; NLP</div>
-            <h3 class="card-title">Mental Health Crisis Text Analysis</h3>
-            <p class="card-body">
-              End-to-end ML pipeline for classifying crisis text messages and surfacing
-              high-risk patterns. Includes modeling, evaluation, and visualization components.
-            </p>
-            <div class="card-meta">
-              <span>Python · NLP · sklearn</span>
-              <span class="badge">Open source • non-commercial</span>
-            </div>
-          </article>
-        </a>
-
-        <a class="card-link" href="https://github.com/natheryinan/Repo-FastAPI-APP_2" target="_blank" rel="noreferrer">
-          <article class="card">
-            <div class="card-kicker">Serving &amp; APIs</div>
-            <h3 class="card-title">FastAPI Microservice Experiments</h3>
-            <p class="card-body">
-              FastAPI-based experimentation space for serving models and agentic tools,
-              exploring latency, throughput, and observability baselines.
-            </p>
-            <div class="card-meta">
-              <span>Python · FastAPI · Docker</span>
-              <span class="badge">Evaluation only</span>
-            </div>
-          </article>
-        </a>
-
-        <a class="card-link" href="https://github.com/natheryinan" target="_blank" rel="noreferrer">
-          <article class="card">
-            <div class="card-kicker">Futures</div>
-            <h3 class="card-title">Pricing &amp; Decision Engines</h3>
-            <p class="card-body">
-              Bandit and reinforcement-learning concepts for dynamic pricing and allocation.
-              Work in progress toward production-grade engines.
-            </p>
-            <div class="card-meta">
-              <span>RL · bandits · experimentation</span>
-              <span class="badge">Concept / WIP</span>
-            </div>
-          </article>
-        </a>
-
-        <article class="card">
-          <div class="card-kicker">Legal / usage</div>
-          <h3 class="card-title">Usage, licensing &amp; enforcement</h3>
-          <p class="card-body">
-            All work is protected. Evaluation and learning are welcome; unapproved commercial
-            use, closed-source forks, or removal of attribution are strictly forbidden.
-            Commercial licensing is available on request.
-          </p>
-          <div class="card-meta">
-            <span>See repository README &amp; LICENSE</span>
-            <span class="badge">No unauthorized commercial use</span>
-          </div>
-        </article>
-      </div>
-
-      <p class="footnote">
-        This portfolio tracks aggregate traffic only. GitHub and third-party platforms
-        enforce their own privacy and access controls. Evidence of misuse will be
-        investigated through standard legal and DMCA processes.
-      </p>
-
-      <div class="small-links">
-        <a href="https://github.com/natheryinan" target="_blank" rel="noreferrer">GitHub</a>
-        <a href="https://www.linkedin.com/in/natheryinan" target="_blank" rel="noreferrer">LinkedIn</a>
-      </div>
-    </section>
-  </main>
+  <div class="center">
+    <h1>LORD YINAN – GitHub Pages is LIVE</h1>
+    <p>
+      If you can see this text, your <code>natheryinan.github.io</code> site is working
+      and the Google Analytics tag <strong>G-KLQMTJ8SC8</strong> is installed
+      on this page.
+    </p>
+  </div>
 </body>
 </html>
